@@ -23,4 +23,12 @@ trait LoggerAwareTrait
     {
         $this->logger = $logger;
     }
+
+    /**
+     * @return LoggerInterface
+     */
+    public function getLogger()
+    {
+        return !is_null($this->logger) ? $this->logger : new NullLogger();
+    }
 }
